@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import ArtistCard from '../components/artistCard.jsx'
+import ArtistCard from './ArtistCard.jsx'
 import artists from '../test.json'
 
 import "bootstrap/dist/css/bootstrap.min.css";

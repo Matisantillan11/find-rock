@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import SearchBar from '../components/searchBar.jsx'
+import SearchBar from '../components/SearchBar.jsx'
 import SearchResult from '../components/SearchResult.jsx'
 
 export default class extends Component {

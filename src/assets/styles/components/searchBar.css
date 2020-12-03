@@ -1,22 +1,33 @@
+.row{
+    width:90vw;
+}
 .searchBar--logo{
-    width: 250px;
+    width: 90%;
     height: 50px;
-    margin: 2.5% 5%;
+    margin: 2.5% 10%;
 }
 
 .form-inline{
-    margin: 2% 10%;
+    margin: 2%;
 }
-.form-group{
+.search{
+    background: #fff;
     display:flex;
-    width:100%;
+    border: 1px solid #dfe1e5;
+    width:90%;
+    height: 44px;
+    border: none;
+    
 }
 
-.form-control{
+input{
+    background: transparent;
     display:flex;
     width: 100% !important;
+    margin: 0;
+    padding: 15px;
 }
-.form-control:hover{
+input:hover{
     box-shadow: 0 1px 6px 0 rgba(32,33,36,0.30);
     cursor: pointer;
 }

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 
 
-import '../assets/styles/components/artistCard.css'
+import '../assets/styles/components/ArtistCard.css'
 export default class extends Component{
     render(){
         return(
