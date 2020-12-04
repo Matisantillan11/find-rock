@@ -6,7 +6,7 @@ import Home from '../containers/HomePage.jsx'
 
 import '../assets/styles/components/App.css'
 import Footer from './Footer.jsx'
-export default () =>{
+const App = () =>{
     return(
         <BrowserRouter>
         <Footer>
@@ -19,3 +19,5 @@ export default () =>{
         </BrowserRouter>
     )
 }
+
+export default App

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ArtistCard from './ArtistCard.jsx'
 
-export default class extends Component{
+class SimilarArtist extends Component{
     render(){
         return(
             <>
@@ -18,10 +18,11 @@ export default class extends Component{
                                 <ArtistCard artistImg = {artist.image[3]["#text"]} artistName={artist.name} key={i}/>
                                 )
                         })}
-                       
                     </div>    
                 </div>
             </>
         )
     }
 }
+
+export default SimilarArtist

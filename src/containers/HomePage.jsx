@@ -4,7 +4,7 @@ import '../assets/styles/containers/HomePage.css'
 
 import logo from '../assets/images/logo.svg'
 
-export default class extends Component {
+class HomePage extends Component {
     state = {
         search: ''
     }
@@ -12,7 +12,6 @@ export default class extends Component {
     submitted = (e) =>{
         e.preventDefault()
         this.props.history.push(`/search?${this.state.search}`)
-        console.log('Enviando')
     }
 
     onChange = (e) =>{
@@ -55,3 +54,5 @@ export default class extends Component {
         )
     }
 }
+
+export default HomePage

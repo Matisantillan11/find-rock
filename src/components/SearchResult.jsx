@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 
 import ArtistCard from './ArtistCard.jsx'
 
-import DeezerConfig from '../api/DeezerConfig.jsx'
 import "bootstrap/dist/css/bootstrap.min.css";
-export default class extends Component {
+class SearchResult extends Component {
     state = {
         loading: false,
         error:false,
+        API_KEY: '1a3e0cd8ac7a846ec661fc5a998e7496',
         data: {
             similarartists:{
                 artist: []
@@ -16,7 +16,7 @@ export default class extends Component {
     }
     componentWillReceiveProps(e){
         const artist = e.search
-        this.fetchData(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${artist}&api_key=${DeezerConfig.API_KEY}&format=json`)
+        this.fetchData(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${artist}&api_key=${this.state.API_KEY}&format=json`)
     }
 
     fetchData = async url =>{
@@ -59,3 +59,5 @@ export default class extends Component {
         )
     }
 }
+
+export default SearchResult

@@ -4,11 +4,12 @@ import '../assets/styles/containers/Artist.css'
 
 import SearchBar from '../components/SearchBar.jsx'
 import SimilarArtists from '../components/SimilarArtists'
-import DeezerConfig from '../api/DeezerConfig.jsx'
 
-export default class extends Component {
+
+export default class Artist extends Component {
     state={
         search: '',
+        API_KEY: '1a3e0cd8ac7a846ec661fc5a998e7496',
         loading: false,
         error:false,
         data: {
@@ -53,15 +54,21 @@ export default class extends Component {
 
         
         componentDidMount(){
-            const artist = this.props.history.location.search.substr(1)
-            this.fetchData(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=${DeezerConfig.API_KEY}&format=json`)
+            this.fetchData()
+        }
+
+        componentDidUpdate(prevProps){
+            if(this.props.location !== prevProps.location){
+                this.fetchData()
+            }
         }
         
-        fetchData = async url =>{
+        fetchData = async () =>{
+            const artist = this.props.history.location.search.substr(1)
+            const url = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=${this.state.API_KEY}&format=json`
             this.setState({loading: true})
             const response = await fetch(url)
             const data = await response.json()
-            console.log(data)
             if(data.error){
                 this.setState({
                     loading: false,

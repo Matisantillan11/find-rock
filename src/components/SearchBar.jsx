@@ -4,12 +4,8 @@ import logo from '../assets/images/logo.svg'
 
 import '../assets/styles/components/SearchBar.css'
 
-export default class extends Component{
+class SearchBar extends Component{
     
-    submitted = e =>{
-        e.preventDefault()
-        alert(`${this.props.search}`)
-    }
 
     render(){
         
@@ -24,7 +20,6 @@ export default class extends Component{
                     </div>
                     <div className="col-md-4">
                         <form 
-                        /* onSubmit={this.submitted} */
                         className="form-inline">
                             <div className="search form-group mx-sm-3 md-2">
                                 <input 
@@ -42,3 +37,5 @@ export default class extends Component{
         )
     }
 }
+
+export default SearchBar

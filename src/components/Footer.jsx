@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({children}) =>{
+const Footer = ({children}) =>{
         return(
             <>
                 {children}
@@ -12,3 +12,5 @@ export default ({children}) =>{
             </>
         )
 }
+
+export default Footer

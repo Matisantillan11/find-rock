@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import SearchBar from '../components/SearchBar.jsx'
 import SearchResult from '../components/SearchResult.jsx'
 
-export default class extends Component {
+class SearchResultPage extends Component {
   
   state={
     search: ''
@@ -36,4 +36,5 @@ export default class extends Component {
   }
 }
 
+export default SearchResultPage
 
