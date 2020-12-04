@@ -5,6 +5,22 @@ import '../assets/styles/containers/HomePage.css'
 import logo from '../assets/images/logo.svg'
 
 export default class extends Component {
+    state = {
+        search: ''
+    }
+
+    submitted = (e) =>{
+        e.preventDefault()
+        this.props.history.push(`/search?${this.state.search}`)
+        console.log('Enviando')
+    }
+
+    onChange = (e) =>{
+        this.setState({
+            search: e.target.value
+        })
+    }
+
     render(){
 
         return(
@@ -18,17 +34,19 @@ export default class extends Component {
                                 className="form-inline">
                                     <div className="search">
                                         <input 
-                                        onChange={this.props.onChange}
+                                        onChange={this.onChange}
                                         type="text"
                                         value={this.props.search}
                                         placeholder="Buscar una banda..."/>
                                     </div>
+                                    <div className="actions">
+                                        <button 
+                                        type="submit"
+                                        className="btng">
+                                            Search Artists
+                                        </button>
+                                    </div>
                                 </form>
-                                <div className="actions">
-                                    <button className="btng">
-                                        Search Artists
-                                    </button>
-                                </div>
                             </div>
                         
                     </div>

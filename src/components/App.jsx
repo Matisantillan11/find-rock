@@ -1,17 +1,21 @@
 import React from 'react'
 import{BrowserRouter, Switch, Route} from 'react-router-dom'
-import SearchResultPage from '../containers/searchResultPage.jsx'
+import SearchResultPage from '../containers/SearchResultPage.jsx'
 import Artist from '../containers/Artist.jsx'
 import Home from '../containers/HomePage.jsx'
 
+import '../assets/styles/components/App.css'
+import Footer from './Footer.jsx'
 export default () =>{
     return(
         <BrowserRouter>
+        <Footer>
             <Switch>
                 <Route exacth path="/search" component={SearchResultPage}/>
                 <Route exact path="/artist" component={Artist}/>
                 <Route path="/" component={Home}/>
             </Switch>
+        </Footer>
         </BrowserRouter>
     )
 }

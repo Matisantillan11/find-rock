@@ -11,20 +11,16 @@ export default class extends Component{
                         <hr/>
                     </div>
                 </div>
-                <div className="row">  
-                    <div className="col-md-3">
-                        <ArtistCard artistImg = "https://via.placeholder.com/300" artistName="Similar Artist"/>
-                    </div>
-                    <div className="col-md-3">
-                        <ArtistCard artistImg = "https://via.placeholder.com/300" artistName="Similar Artist"/>
-                    </div>
-                    <div className="col-md-3">
-                        <ArtistCard artistImg = "https://via.placeholder.com/300" artistName="Similar Artist"/>
-                    </div>
-                    <div className="col-md-3">
-                        <ArtistCard artistImg = "https://via.placeholder.com/300" artistName="Similar Artist"/>
-                    </div>
-                </div>    
+                <div className="container">
+                    <div className="row row-center">  
+                        {this.props.data.slice(0,4).map((artist, i) =>{
+                            return(
+                                <ArtistCard artistImg = {artist.image[3]["#text"]} artistName={artist.name} key={i}/>
+                                )
+                        })}
+                       
+                    </div>    
+                </div>
             </>
         )
     }
