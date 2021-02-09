@@ -65,7 +65,7 @@ export default class Artist extends Component {
         
         fetchData = async () =>{
             const artist = this.props.history.location.search.substr(1)
-            const url = `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=${this.state.API_KEY}&format=json`
+            const url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=${this.state.API_KEY}&format=json`
             this.setState({loading: true})
             const response = await fetch(url)
             const data = await response.json()
