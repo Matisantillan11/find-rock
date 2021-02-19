@@ -6,6 +6,7 @@ import '../assets/styles/components/SearchBar.css'
 
 class SearchBar extends Component{
     
+    
 
     render(){
         
@@ -24,7 +25,6 @@ class SearchBar extends Component{
                             <div className="search form-group mx-sm-3 md-2">
                                 <input 
                                 onChange={this.props.onChange}
-                                className="form-control"
                                 type="text" 
                                 value={this.props.search}
                                 placeholder="Buscar una banda..."/>

@@ -1,43 +1,45 @@
 import React, { Component } from 'react'
-
 import ArtistCard from './ArtistCard.jsx'
 
 import "bootstrap/dist/css/bootstrap.min.css";
 class SearchResult extends Component {
+    
     state = {
         loading: false,
         error:false,
-        API_KEY: '1a3e0cd8ac7a846ec661fc5a998e7496',
-        data: {
-            similarartists:{
-                artist: []
-            }
+        data: {          
+            artists: []
         }
     }
+
+    
+
     componentWillReceiveProps(e){
         const artist = e.search
-        this.fetchData(`http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${artist}&api_key=${this.state.API_KEY}&format=json`)
+        this.fetchData(`https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`);
+        
     }
 
     fetchData = async url =>{
         this.setState({loading: true})
         const response = await fetch(url)
         const data = await response.json()
-        console.log(data)
-        if(data.error){
+        
+        if(data.artists === null){
             this.setState({
                 loading: false,
                 error: true,
-                errorMessage : data.message
+                errorMessage : 'No encontramos ningun artista'
             })
         }
         else{
-
+            
             this.setState({
                 error: false,
                 loading: false,
                 data: data
             })
+            console.log(this.state.data.artists)
         }
     }
     
@@ -48,11 +50,10 @@ class SearchResult extends Component {
                 {this.state.loading && <p className="center">Loading...</p>}
                 {this.state.error && <p className="center">Error: {this.state.errorMessage}</p>}
                 <div className="container">
-                    <h1>{this.props.search}</h1>
-                    <div className="row">
-                        {this.state.data.similarartists.artist.map( (artist, i) =>{
-                            return <ArtistCard key={i} artistName={artist.name} artistImg = {artist.image[2]["#text"]}/>   
-                        })}
+                    <div className="artistCard_container">
+                        {this.state.data.artists.map( (artist) =>{
+                            return <ArtistCard key={artist.idArtist} artistName={artist.strArtist} artistImg = {artist.strArtistThumb}/>   
+                        })} 
                     </div>
                 </div>
             </>
@@ -60,4 +61,4 @@ class SearchResult extends Component {
     }
 }
 
-export default SearchResult
+export default SearchResult;

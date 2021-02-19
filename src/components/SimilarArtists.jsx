@@ -15,7 +15,7 @@ class SimilarArtist extends Component{
                     <div className="row row-center">  
                         {this.props.data.slice(0,4).map((artist, i) =>{
                             return(
-                                <ArtistCard artistImg = {artist.image[3]["#text"]} artistName={artist.name} key={i}/>
+                                <ArtistCard artistImg = {artist.strArtistThumb} artistName={artist.strArtist} key={i}/>
                                 )
                         })}
                     </div>    

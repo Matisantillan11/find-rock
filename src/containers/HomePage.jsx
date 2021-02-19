@@ -11,8 +11,11 @@ class HomePage extends Component {
 
     submitted = (e) =>{
         e.preventDefault()
+        
         this.props.history.push(`/search?${this.state.search}`)
-    }
+
+        }
+    
 
     onChange = (e) =>{
         this.setState({

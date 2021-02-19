@@ -8,28 +8,34 @@ class SearchResultPage extends Component {
   
   state={
     search: ''
-  }
+  };
   
   componentDidMount(){
-    let search = this.props.history.location.search.substr(1).replace("%20", " ")
-    this.setState({search: search})
+    
+      let searcher = this.props.history.location.search.substr(1).replace("%20", " ");
+      this.setState({search: searcher})
+    
   }
-  
 
   Searched = e =>{
+    
     this.setState(
       {
         search: e.target.value
       }
     )
   }
+
+ 
   render(){
     
     return (
       <>
         <SearchBar 
-        onChange = {this.Searched}
+        onChange = {this.Searched} 
         search = {this.state.search}/>
+        
+
         <SearchResult search = {this.state.search}/>
       </>
     );

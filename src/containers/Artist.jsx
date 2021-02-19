@@ -9,38 +9,10 @@ import SimilarArtists from '../components/SimilarArtists'
 export default class Artist extends Component {
     state={
         search: '',
-        API_KEY: '1a3e0cd8ac7a846ec661fc5a998e7496',
         loading: false,
         error:false,
         data: {
-                artist: {
-                    image:[
-                        {"#text": "", size: ""},
-                        {"#text": "", size: ""},
-                        {"#text": "", size: ""},
-                        {"#text": "", size: ""},
-                        {"#text": "", size: ""}
-                        
-                    ],
-                    similar:{
-                        artist: [
-                            {
-                                name: "",
-                                url: "",
-                                image: [
-                                    {"#text": ""},
-                                    {"#text": ""},
-                                    {"#text": ""},
-                                    {"#text": ""},
-                                    {"#text": ""}
-                                ]
-                            }
-                        ]
-                    },
-                    bio:{
-                        summary: ""
-                    }
-                }
+            artists: [{}] 
             }
         }
     
@@ -54,26 +26,29 @@ export default class Artist extends Component {
 
         
         componentDidMount(){
+            
             this.fetchData()
-        }
+        } 
 
         componentDidUpdate(prevProps){
             if(this.props.location !== prevProps.location){
                 this.fetchData()
+                
             }
+            
         }
         
         fetchData = async () =>{
             const artist = this.props.history.location.search.substr(1)
-            const url = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=${this.state.API_KEY}&format=json`
+            const url = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
             this.setState({loading: true})
             const response = await fetch(url)
             const data = await response.json()
-            if(data.error){
+            if(data.artists === null){
                 this.setState({
                     loading: false,
                     error: true,
-                    errorMessage : data.message
+                    errorMessage : 'Artist not found'
                 })
             }
             else{
@@ -84,6 +59,7 @@ export default class Artist extends Component {
                     data: data
                 })
             }
+            
         }
 
         render(){
@@ -97,17 +73,23 @@ export default class Artist extends Component {
                 <div className="container">
                     <div className="row center">
                     <div className="col-md-2"/>
-                            <div className="col-md-7">
-                                <img src={this.state.data.artist.image[3]["#text"]} alt={this.state.data.artist.name}
-                                className="artist--img"/>
-                                <h3>{this.state.data.artist.name}</h3>
-                                <p>{this.state.data.artist.bio.summary}</p>
-                            </div>   
+                            
+                        {this.state.data.artists.map((artist) =>{
+                            return(
+                                <div key={artist.idArtist} className="col-md-7">
+                                    <img src={artist.strArtistThumb} alt={artist.strArtist}
+                                    className="artist--img"/>
+                                    <h3>{artist.strArtist}</h3>
+                                    <p>{artist.strBiographyEN}</p>
+                                </div>
+                            )
+                        })}
+             
                     </div>
                 </div>
-                <div className="row">
+               {/*  <div className="row">
                     <SimilarArtists data= {this.state.data.artist.similar.artist} />
-                </div>
+                </div> */}
             </>
     );
     }
