@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 import SearchBar from '../components/SearchBar.jsx'
 import SearchResult from '../components/SearchResult.jsx'
+import SimilarArtist from '../components/SimilarArtists.jsx'
 
 class SearchResultPage extends Component {
   
@@ -26,6 +27,7 @@ class SearchResultPage extends Component {
     )
   }
 
+
  
   render(){
     
@@ -33,9 +35,8 @@ class SearchResultPage extends Component {
       <>
         <SearchBar 
         onChange = {this.Searched} 
-        search = {this.state.search}/>
-        
-
+        search = {this.state.search}
+        />
         <SearchResult search = {this.state.search}/>
       </>
     );

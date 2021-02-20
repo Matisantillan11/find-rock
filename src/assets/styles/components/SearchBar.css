@@ -25,10 +25,11 @@ input{
     display:flex;
     width: 100% !important;
     margin: 0;
-    padding: 15px;
+    
+    border:none;
 }
-input:hover{
-    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.30);
+.search:hover{
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.30);   
     cursor: pointer;
 }
 

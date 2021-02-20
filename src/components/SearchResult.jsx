@@ -7,6 +7,7 @@ class SearchResult extends Component {
     state = {
         loading: false,
         error:false,
+        API_KEY: '523532',
         data: {          
             artists: []
         }
@@ -16,7 +17,7 @@ class SearchResult extends Component {
 
     componentWillReceiveProps(e){
         const artist = e.search
-        this.fetchData(`https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`);
+        this.fetchData(`https://theaudiodb.com/api/v1/json/${this.state.API_KEY}/search.php?s=${artist}`);
         
     }
 
@@ -29,7 +30,7 @@ class SearchResult extends Component {
             this.setState({
                 loading: false,
                 error: true,
-                errorMessage : 'No encontramos ningun artista'
+                errorMessage : 'Artist not found'
             })
         }
         else{
@@ -39,7 +40,6 @@ class SearchResult extends Component {
                 loading: false,
                 data: data
             })
-            console.log(this.state.data.artists)
         }
     }
     
