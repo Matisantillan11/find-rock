@@ -48,7 +48,8 @@ class SearchResult extends Component {
         return (
             <>  
                 {this.state.loading && <p className="center">Loading...</p>}
-                {this.state.error && <p className="center">Error: {this.state.errorMessage}</p>}
+                {this.state.error ? <p className="center">Error: {this.state.errorMessage}</p> :
+                
                 <div className="container">
                     <div className="artistCard_container">
                         {this.state.data.artists.map( (artist) =>{
@@ -56,6 +57,9 @@ class SearchResult extends Component {
                         })} 
                     </div>
                 </div>
+                
+                }
+                
             </>
         )
     }

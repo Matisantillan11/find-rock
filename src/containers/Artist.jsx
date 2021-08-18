@@ -89,7 +89,6 @@ export default class Artist extends Component {
                     loading: false,
                     albums: data
                 })
-                console.log(this.state.albums)
             }
         }
 
@@ -98,7 +97,8 @@ export default class Artist extends Component {
             <>
                 <SearchBar 
                 onChange = {this.Searched}
-                search = {this.state.search}/>
+                search = {this.state.search}
+                history= {this.props.history}/>
                 {this.state.loading && <p className="center">Loading...</p>}
                 {this.state.error && <p className="center">Error: {this.state.errorMessage}</p>}
                 <div className="container">

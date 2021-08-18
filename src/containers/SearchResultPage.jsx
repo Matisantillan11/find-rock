@@ -36,6 +36,7 @@ class SearchResultPage extends Component {
         <SearchBar 
         onChange = {this.Searched} 
         search = {this.state.search}
+        history = {this.props.history}
         />
         <SearchResult search = {this.state.search}/>
       </>

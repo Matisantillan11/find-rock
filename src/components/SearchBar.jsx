@@ -1,12 +1,17 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import logo from '../assets/images/logo.svg'
 
 import '../assets/styles/components/SearchBar.css'
 
 class SearchBar extends Component{
     
-    
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.history.push(`/search?${this.props.search}`)
+
+    }
+
 
     render(){
         
@@ -21,7 +26,8 @@ class SearchBar extends Component{
                     </div>
                     <div className="col-md-4">
                         <form 
-                        className="form-inline">
+                        className="form-inline"
+                        onSubmit={this.handleSubmit}>
                             <div className="search form-group mx-sm-3 md-2">
                                 <input 
                                 onChange={this.props.onChange}
