@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import logo from '../assets/images/logo.svg'
 
 import '../assets/styles/components/SearchBar.css'
