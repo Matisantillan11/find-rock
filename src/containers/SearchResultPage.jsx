@@ -1,48 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { SearchBar } from '../components/SearchBar.jsx'
+import { SearchResult } from '../components/SearchResult.jsx'
 
-
-import SearchBar from '../components/SearchBar.jsx'
-import SearchResult from '../components/SearchResult.jsx'
-import SimilarArtist from '../components/SimilarArtists.jsx'
-
-class SearchResultPage extends Component {
-  
-  state={
-    search: ''
-  };
-  
-  componentDidMount(){
-    
-      let searcher = this.props.history.location.search.substr(1).replace("%20", " ");
-      this.setState({search: searcher})
-    
-  }
-
-  Searched = e =>{
-    
-    this.setState(
-      {
-        search: e.target.value
-      }
-    )
-  }
-
-
- 
-  render(){
-    
-    return (
-      <>
-        <SearchBar 
-        onChange = {this.Searched} 
-        search = {this.state.search}
-        history = {this.props.history}
-        />
-        <SearchResult search = {this.state.search}/>
-      </>
-    );
-  }
+export const SearchResultPage = () => {
+	return (
+		<>
+			<SearchBar />
+			<SearchResult />
+		</>
+	)
 }
-
-export default SearchResultPage
-
