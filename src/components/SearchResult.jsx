@@ -4,6 +4,7 @@ import { ArtistCard } from './ArtistCard.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useArtist } from '../hooks/useArtist.js'
 import { useHistory } from 'react-router-dom'
+import { LoaderCustom } from './LoaderCustom.jsx'
 
 export const SearchResult = () => {
 	const {
@@ -21,7 +22,7 @@ export const SearchResult = () => {
 	}, [searcher])
 	return (
 		<>
-			{loading && <p className='center'>Loading...</p>}
+			{loading && <LoaderCustom />}
 			{error ? (
 				<p className='center'>Error: {errorMessage}</p>
 			) : (

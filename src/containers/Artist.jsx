@@ -6,6 +6,7 @@ import '../assets/styles/containers/Artist.css'
 import { SearchBar } from '../components/SearchBar.jsx'
 import SimilarArtists from '../components/SimilarArtists'
 import { useArtist } from '../hooks/useArtist'
+import { LoaderCustom } from '../components/LoaderCustom'
 
 export const Artist = () => {
 	const {
@@ -30,7 +31,7 @@ export const Artist = () => {
 	return (
 		<>
 			<SearchBar />
-			{loading && <p className='center'>Loading...</p>}
+			{loading && <LoaderCustom />}
 			{error && <p className='center'>Error: {errorMessage}</p>}
 			<div className='container'>
 				<div className='row center'>
