@@ -3,6 +3,7 @@ import { InitialState } from '../initialState'
 
 export const useArtist = () => {
 	const [state, setState] = useState(InitialState)
+	const [albums, setAlbums] = useState([])
 
 	const getArtist = async (url) => {
 		setState({ ...state, loading: true })
@@ -26,5 +27,21 @@ export const useArtist = () => {
 		}
 	}
 
-	return { state, getArtist }
+	const getAlbums = async (url) => {
+		setState({ ...state, loading: true })
+		const response = await fetch(url)
+		const data = await response.json()
+		if (data.albums === null) {
+			setState({
+				...state,
+				loading: false,
+				error: true,
+				errorMessage: 'Album not found',
+			})
+		} else {
+			setAlbums(data.album)
+		}
+	}
+
+	return { state, albums, getArtist, getAlbums }
 }
