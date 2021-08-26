@@ -15,11 +15,3 @@ export const AlbumCard = ({ albumImg, albumName }) => {
 		</div>
 	)
 }
-
-/* class AlbumCard extends Component{
-    render(){
-        
-    }
-}
-
-export default AlbumCard; */

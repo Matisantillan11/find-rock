@@ -5,19 +5,6 @@ import logo from '../assets/images/logo.svg'
 import '../assets/styles/components/SearchBar.css'
 import { useInitialState } from '../hooks/useInitialState'
 
-/* class SearchBar extends Component{
-    
-    
-
-
-    render(){
-        
-        
-    }
-}
-
-export default SearchBar */
-
 export const SearchBar = () => {
 	const {
 		state: { search },

@@ -25,7 +25,7 @@ export const HomePage = () => {
 				<div className='row centered'>
 					<div className='col-md-6 center'>
 						<img src={logo} alt='logo' id='logo' />
-						<form className='form-inline'>
+						<form className='form-inline' onSubmit={handleClick}>
 							<div className='search'>
 								<input
 									onChange={(e) => searchArtist(e)}
