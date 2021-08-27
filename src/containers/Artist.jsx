@@ -50,7 +50,7 @@ export const Artist = () => {
 					})}
 
 				{albums ? (
-					<div>
+					<div style={{ width: '100vw' }}>
 						<h3 style={{ textAlign: 'center', marginTop: '20px' }}>Albums</h3>
 						<SimilarArtists data={albums} />
 					</div>

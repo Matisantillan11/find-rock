@@ -6,7 +6,7 @@ class SimilarArtist extends Component {
 		return (
 			<>
 				<div className='similarArtists'>
-					{this.props.data.slice(0, 4).map((album, i) => {
+					{this.props.data.map((album, i) => {
 						return (
 							<AlbumCard
 								key={i}
