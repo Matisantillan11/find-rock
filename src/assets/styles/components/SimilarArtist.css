@@ -1,13 +1,11 @@
-.similarArtists{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-}
-
-.title{
-    width: 88%;
-    text-align: center;
+.similarArtists {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	overflow-x: scroll;
+	width: 80%;
+	height: 100%;
+	margin: 0 10%;
 }
