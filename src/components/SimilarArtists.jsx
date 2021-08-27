@@ -5,12 +5,6 @@ class SimilarArtist extends Component {
 	render() {
 		return (
 			<>
-				<div className='row center margins50'>
-					<div className='title'>
-						<h4>Artist Album</h4>
-						<hr />
-					</div>
-				</div>
 				<div className='similarArtists'>
 					{this.props.data.slice(0, 4).map((album, i) => {
 						return (

@@ -5,13 +5,13 @@ import '../assets/styles/components/ArtistCard.css'
 
 export const AlbumCard = ({ albumImg, albumName }) => {
 	return (
-		<div className='col-3'>
-			<Link to='/'>
+		<>
+			<Link to='/' className='link-card'>
 				<div className='artistCard'>
 					<img className='artistCard--img' src={albumImg} alt={albumName} />
 					<p className='artistCard--name'>{albumName}</p>
 				</div>
 			</Link>
-		</div>
+		</>
 	)
 }

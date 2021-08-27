@@ -34,27 +34,28 @@ export const Artist = () => {
 			{loading && <LoaderCustom />}
 			{error && <p className='center'>Error: {errorMessage}</p>}
 			<div className='container'>
-				<div className='row center'>
-					<div className='col-md-2' />
+				{artists &&
+					artists.map((artist, i) => {
+						return (
+							<div key={i} className='artist_detail--container'>
+								<img
+									src={artist.strArtistThumb}
+									alt={artist.strArtist}
+									className='artist--img'
+								/>
+								<h3>{artist.strArtist}</h3>
+								<p>{artist.strBiographyEN}</p>
+							</div>
+						)
+					})}
 
-					{artists &&
-						artists.map((artist, i) => {
-							return (
-								<div key={i} className='col-md-7'>
-									<img
-										src={artist.strArtistThumb}
-										alt={artist.strArtist}
-										className='artist--img'
-									/>
-									<h3>{artist.strArtist}</h3>
-									<p>{artist.strBiographyEN}</p>
-								</div>
-							)
-						})}
-				</div>
+				{albums ? (
+					<div>
+						<h3 style={{ textAlign: 'center', marginTop: '20px' }}>Albums</h3>
+						<SimilarArtists data={albums} />
+					</div>
+				) : null}
 			</div>
-
-			{albums && <SimilarArtists data={albums} />}
 		</>
 	)
 }
