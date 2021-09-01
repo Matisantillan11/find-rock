@@ -16,11 +16,14 @@
 }
 
 .artistCard--img {
-	width: 150px;
-	height: 150px;
+	width: 60%;
+	height: 20%;
+	max-width: 250px;
+	max-height: 250px;
 	border-radius: 50%;
-	margin: 0 25px;
+	margin: 0 20%;
 	margin-bottom: 15px;
+	align-self: center;
 }
 
 .artistCard--name {

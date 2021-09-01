@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { AlbumCard } from './AlbumCard.jsx'
 import '../assets/styles/components/SimilarArtist.css'
-import { useArtist } from '../hooks/useArtist.js'
+import { Link } from 'react-router-dom'
 
-export const SimilarArtists = ({ data, artist }) => {
+export const SimilarArtists = ({ data }) => {
 	/* const {
 		state: { artists },
 		getArtist,
@@ -20,13 +20,16 @@ export const SimilarArtists = ({ data, artist }) => {
 			<div className='similarArtists'>
 				{data.map((album, i) => {
 					return (
-						<AlbumCard
+						<Link
+							to={`/album?${album.idAlbum}&artist=${album.idArtist}`}
+							className='link-card'
 							key={i}
-							artist={album.idArtist}
-							albumId={album.idAlbum}
-							albumImg={album.strAlbumCDart}
-							albumName={album.strAlbum}
-						/>
+						>
+							<AlbumCard
+								albumImg={album.strAlbumCDart}
+								albumName={album.strAlbum}
+							/>
+						</Link>
 					)
 				})}
 			</div>
