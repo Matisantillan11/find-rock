@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import '../assets/styles/containers/Artist.css'
 
 import { SearchBar } from '../components/SearchBar.jsx'
-import SimilarArtists from '../components/SimilarArtists'
+import { SimilarArtists } from '../components/SimilarArtists'
 import { useArtist } from '../hooks/useArtist'
 import { LoaderCustom } from '../components/LoaderCustom'
 
@@ -52,7 +52,7 @@ export const Artist = () => {
 				{albums ? (
 					<div style={{ width: '100vw' }}>
 						<h3 style={{ textAlign: 'center', marginTop: '20px' }}>Albums</h3>
-						<SimilarArtists data={albums} />
+						<SimilarArtists data={albums} artist={searcher} />
 					</div>
 				) : null}
 			</div>

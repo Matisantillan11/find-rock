@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import '../assets/styles/components/ArtistCard.css'
+import { useAlbum } from '../hooks/useAlbum'
+import { useArtist } from '../hooks/useArtist'
 
 export const ArtistCard = ({ artistImg, artistName }) => {
 	return (
