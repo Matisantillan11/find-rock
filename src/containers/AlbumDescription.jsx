@@ -54,7 +54,9 @@ export const AlbumDescription = () => {
 							)
 						})
 					) : (
-						<p>No se registraron tracks para este album! :c</p>
+						<p style={{ marginBottom: '50px' }}>
+							No se registraron tracks para este album! :c
+						</p>
 					)}
 				</div>
 			</div>

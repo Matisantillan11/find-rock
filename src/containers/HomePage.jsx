@@ -21,7 +21,7 @@ export const HomePage = () => {
 
 	return (
 		<>
-			<div className='container '>
+			<div className='container'>
 				<div className='row centered'>
 					<div className='col-md-6 center'>
 						<img src={logo} alt='logo' id='logo' />
