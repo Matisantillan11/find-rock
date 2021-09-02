@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import React, { Component } from 'react'
+import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
-=======
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
->>>>>>> c7786d584168983b5004d3ad2d0c4be9d385745a
+
 import logo from '../assets/images/logo.svg'
 
 import '../assets/styles/components/SearchBar.css'
@@ -48,8 +44,3 @@ export const SearchBar = () => {
 		</>
 	)
 }
-<<<<<<< HEAD
-=======
-
-export default SearchBar
->>>>>>> c7786d584168983b5004d3ad2d0c4be9d385745a
