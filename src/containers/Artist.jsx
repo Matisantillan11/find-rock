@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import '../assets/styles/containers/Artist.css'
 
 import { SearchBar } from '../components/SearchBar.jsx'
-import SimilarArtists from '../components/SimilarArtists'
+import { SimilarArtists } from '../components/SimilarArtists'
 import { useArtist } from '../hooks/useArtist'
 import { LoaderCustom } from '../components/LoaderCustom'
 

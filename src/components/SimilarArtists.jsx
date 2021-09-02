@@ -1,24 +1,38 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { AlbumCard } from './AlbumCard.jsx'
 import '../assets/styles/components/SimilarArtist.css'
-class SimilarArtist extends Component {
-	render() {
-		return (
-			<>
-				<div className='similarArtists'>
-					{this.props.data.map((album, i) => {
-						return (
+import { Link } from 'react-router-dom'
+
+export const SimilarArtists = ({ data }) => {
+	/* const {
+		state: { artists },
+		getArtist,
+	} = useArtist()
+
+	useEffect(async () => {
+		getArtist(
+			`https://theaudiodb.com/api/v1/json/523532/search.php?s=${artist}`,
+		)
+	}, [artist]) */
+
+	return (
+		<>
+			<div className='similarArtists'>
+				{data.map((album, i) => {
+					return (
+						<Link
+							to={`/album?${album.idAlbum}&artist=${album.idArtist}`}
+							className='link-card'
+							key={i}
+						>
 							<AlbumCard
-								key={i}
 								albumImg={album.strAlbumCDart}
 								albumName={album.strAlbum}
 							/>
-						)
-					})}
-				</div>
-			</>
-		)
-	}
+						</Link>
+					)
+				})}
+			</div>
+		</>
+	)
 }
-
-export default SimilarArtist

@@ -20,7 +20,7 @@ export const SearchBar = () => {
 
 	return (
 		<>
-			<div className='row'>
+			<div className='searchBar'>
 				<div className='col-md-2'>
 					<Link to='/'>
 						<img className='searchBar--logo' src={logo} alt='logo' />
